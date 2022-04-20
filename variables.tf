@@ -15,42 +15,58 @@
 # Kubernetes
 
 variable "cluster_name" {
-  type = string
+  type        = string
   description = "name of the kubernetes cluster"
 }
 
 variable "node_count" {
-  type = number
+  type        = number
   description = "Number of nodes into the cluster"
 }
 
-variable "node_instance_type" {
-    type = string
-    description = "Instance type of the target nodes."
-    default = "g3.k3s.medium"
-  
+variable "node_instance_size" {
+  type        = string
+  description = "Instance type of the target nodes."
+  default     = "g3.k3s.medium"
+}
+
+variable "cni" {
+  type        = string
+  description = "The cni for the k3s to install"
+  default     = "cilium"
 }
 
 variable "k3s_version" {
-    type = string
-    description = "supported version of the k3s cluster"
-    default = ""
+  type        = string
+  description = "supported version of the k3s cluster"
+  default     = ""
 }
 
 variable "network_name" {
-    type = string
-    description = "name of the existing network"
-    default = ""
+  type        = string
+  description = "name of the existing network"
+  default     = ""
 }
 
-variable "firewall_name" {
-    type = string
-    description = "name of the existing firewall"
-    default = ""
-}
-
-variable authorized_networks {
-  type = set(string)
+variable "authorized_networks" {
+  type        = set(string)
   description = "Authorized networks for Kubernetes API server"
-  default = ["0.0.0.0/0"]
+  default     = ["0.0.0.0/0"]
+}
+
+variable "tags" {
+  type        = string
+  description = "Tags"
+  default     = "terraform"
+}
+
+variable "node_pools" {
+  description = "Addons node pools"
+  type = list(object({
+    label      = string
+    node_count = number
+    size       = string
+    region     = string
+  }))
+  default = []
 }

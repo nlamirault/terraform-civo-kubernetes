@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "civo_network" "this" {
-  label = var.network_name
+resource "civo_kubernetes_node_pool" "this" {
+  count = length(var.node_pools)
+
+  cluster_id = civo_kubernetes_cluster.this.id
+  label      = var.node_pools[count.index].label
+  node_count = var.node_pools[count.index].node_count
+  size       = var.node_pools[count.index].size
+  region     = var.node_pools[count.index].region
 }
