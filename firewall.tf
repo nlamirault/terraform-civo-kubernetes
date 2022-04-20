@@ -15,10 +15,12 @@
 resource "civo_firewall" "this" {
   name       = var.cluster_name
   network_id = data.civo_network.this.id
+  region     = var.region
 }
 
-resource "civo_firewall_rule" "access" {
+resource "civo_firewall_rule" "this" {
   firewall_id = civo_firewall.this.id
+  action      = "allow"
   protocol    = "tcp"
   start_port  = "6443"
   end_port    = "6443"

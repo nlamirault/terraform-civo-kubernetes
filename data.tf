@@ -13,5 +13,6 @@
 # limitations under the License.
 
 data "civo_network" "this" {
-  label = var.network_name
+  label  = var.network_name
+  region = var.region
 }

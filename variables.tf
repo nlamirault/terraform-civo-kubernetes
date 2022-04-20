@@ -14,6 +14,11 @@
 
 # Kubernetes
 
+variable "region" {
+  type        = string
+  description = "The region in which the cluster should be created."
+}
+
 variable "cluster_name" {
   type        = string
   description = "name of the kubernetes cluster"

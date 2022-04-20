@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "civo_kubernetes_cluster" "cluster" {
-  name               = var.cluster_name
+resource "civo_kubernetes_cluster" "this" {
+  name = var.cluster_name
+
   kubernetes_version = var.k3s_version
   network_id         = data.civo_network.this.id
   firewall_id        = civo_firewall.this.id
-  cni                = var.cni
+  region             = var.region
+
+  cni = var.cni
 
   pools {
     node_count = var.node_count
