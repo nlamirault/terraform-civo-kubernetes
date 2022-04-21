@@ -23,6 +23,7 @@ resource "civo_kubernetes_cluster" "this" {
   cni = var.cni
 
   pools {
+    label      = var.node_label
     node_count = var.node_count
     size       = var.node_instance_size
   }

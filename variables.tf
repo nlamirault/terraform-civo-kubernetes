@@ -24,6 +24,13 @@ variable "cluster_name" {
   description = "name of the kubernetes cluster"
 }
 
+variable "node_label" {
+  type        = string
+  description = "Label of the main node pool"
+  default     = "core"
+}
+
+
 variable "node_count" {
   type        = number
   description = "Number of nodes into the cluster"
