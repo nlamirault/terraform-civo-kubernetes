@@ -41,6 +41,7 @@ No modules.
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | name of the existing network | `string` | `""` | no |
 | <a name="input_node_count"></a> [node\_count](#input\_node\_count) | Number of nodes into the cluster | `number` | n/a | yes |
 | <a name="input_node_instance_size"></a> [node\_instance\_size](#input\_node\_instance\_size) | Instance type of the target nodes. | `string` | `"g3.k3s.medium"` | no |
+| <a name="input_node_label"></a> [node\_label](#input\_node\_label) | Label of the main node pool | `string` | `"core"` | no |
 | <a name="input_node_pools"></a> [node\_pools](#input\_node\_pools) | Addons node pools | <pre>list(object({<br>    label      = string<br>    node_count = number<br>    size       = string<br>    region     = string<br>  }))</pre> | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region in which the cluster should be created. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags | `string` | `"terraform"` | no |
