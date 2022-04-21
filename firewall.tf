@@ -20,6 +20,7 @@ resource "civo_firewall" "this" {
 
 resource "civo_firewall_rule" "this" {
   firewall_id = civo_firewall.this.id
+  region      = var.region
   action      = "allow"
   protocol    = "tcp"
   start_port  = "6443"
