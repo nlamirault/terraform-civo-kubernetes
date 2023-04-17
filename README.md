@@ -8,13 +8,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_civo"></a> [civo](#requirement\_civo) | 1.0.17 |
+| <a name="requirement_civo"></a> [civo](#requirement\_civo) | >= 1.0.30 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_civo"></a> [civo](#provider\_civo) | 1.0.17 |
+| <a name="provider_civo"></a> [civo](#provider\_civo) | >= 1.0.30 |
 
 ## Modules
 
@@ -24,11 +24,11 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [civo_firewall.this](https://registry.terraform.io/providers/civo/civo/1.0.17/docs/resources/firewall) | resource |
-| [civo_firewall_rule.this](https://registry.terraform.io/providers/civo/civo/1.0.17/docs/resources/firewall_rule) | resource |
-| [civo_kubernetes_cluster.this](https://registry.terraform.io/providers/civo/civo/1.0.17/docs/resources/kubernetes_cluster) | resource |
-| [civo_kubernetes_node_pool.this](https://registry.terraform.io/providers/civo/civo/1.0.17/docs/resources/kubernetes_node_pool) | resource |
-| [civo_network.this](https://registry.terraform.io/providers/civo/civo/1.0.17/docs/data-sources/network) | data source |
+| [civo_firewall.this](https://registry.terraform.io/providers/civo/civo/latest/docs/resources/firewall) | resource |
+| [civo_firewall_rule.this](https://registry.terraform.io/providers/civo/civo/latest/docs/resources/firewall_rule) | resource |
+| [civo_kubernetes_cluster.this](https://registry.terraform.io/providers/civo/civo/latest/docs/resources/kubernetes_cluster) | resource |
+| [civo_kubernetes_node_pool.this](https://registry.terraform.io/providers/civo/civo/latest/docs/resources/kubernetes_node_pool) | resource |
+| [civo_network.this](https://registry.terraform.io/providers/civo/civo/latest/docs/data-sources/network) | data source |
 
 ## Inputs
 
