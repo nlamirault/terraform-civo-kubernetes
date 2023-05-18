@@ -13,19 +13,32 @@
 # limitations under the License.
 
 resource "civo_firewall" "this" {
-  name       = var.cluster_name
-  network_id = data.civo_network.this.id
-  region     = var.region
-}
+  name                 = var.cluster_name
+  region               = var.region
+  network_id           = data.civo_network.this.id
+  create_default_rules = false
 
-resource "civo_firewall_rule" "this" {
-  firewall_id = civo_firewall.this.id
-  region      = var.region
-  action      = "allow"
-  protocol    = "tcp"
-  start_port  = "6443"
-  end_port    = "6443"
-  cidr        = var.authorized_networks
-  direction   = "ingress"
-  label       = "kubernetes-api-server"
+  ingress_rule {
+    label      = "k8s"
+    protocol   = "tcp"
+    port_range = "6443"
+    cidr       = var.authorized_networks
+    action     = "allow"
+  }
+
+  ingress_rule {
+    label      = "ssh"
+    protocol   = "tcp"
+    port_range = "22"
+    cidr       = var.authorized_networks
+    action     = "allow"
+  }
+
+  egress_rule {
+    label      = "all"
+    protocol   = "tcp"
+    port_range = "1-65535"
+    cidr       = ["0.0.0.0/0"]
+    action     = "allow"
+  }
 }
